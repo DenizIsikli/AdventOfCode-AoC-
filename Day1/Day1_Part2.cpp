@@ -3,8 +3,6 @@
 #include <string>
 #include <cstdint>
 
-using namespace std;
-
 typedef struct {
     std::string str;
     int i;

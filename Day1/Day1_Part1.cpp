@@ -3,8 +3,6 @@
 #include <string>
 #include <cstdint>
 
-using namespace std;
-
 int main() {
     uint32_t sum = 0;
     std::string line;
