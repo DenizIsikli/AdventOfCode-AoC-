@@ -8,6 +8,7 @@
 #include <numeric>
 
 struct PairHash {
+    // Member function operator() that takes a pair of ints and returns a size_t
     size_t operator()(const std::pair<int, int> &p) const {
         return static_cast<size_t>(p.first) ^ static_cast<size_t>(p.second);
     }
@@ -43,6 +44,7 @@ int main() {
     
     for (int y = 0; y < lines.size(); ++y) {
         std::regex numberRegex("\\d+");
+        // std::sregex_iterator iterates over a string and searches for a match to regex (numberRegex) above
         std::sregex_iterator matchIterator(lines[y].begin(), lines[y].end(), numberRegex);
         std::sregex_iterator end;
 

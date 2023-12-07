@@ -21,6 +21,7 @@ int main() {
         for (int i = 0; i < line.length(); i++) {
             if (isdigit(line[i])) {
                 if (leftmost == -1) {
+                    // line[i] - '0' converts the char to an int
                     leftmost = line[i] - '0';
                     rightmost = line[i] - '0';
                 } else {
