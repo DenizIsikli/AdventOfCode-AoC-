@@ -47,6 +47,8 @@ int main () {
             total_sum += 1 << (card_score - 1);
         }
     }
+
+    file.close();
     
     std::cout << "Total: " << total_sum << std::endl;
     return 0;

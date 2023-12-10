@@ -41,6 +41,8 @@ int main() {
         scratchNumbersList.push_back(scratchNumbers);
     }
 
+    file.close();
+
     std::vector<int> cardCounts(winningNumbersList.size(), 1);
 
     for (size_t i = 0; i < winningNumbersList.size(); ++i) {

@@ -34,6 +34,8 @@ int main() {
         }
     }
 
+    file.close();
+
     int totalPossibilities = 1;
     
     for (size_t i = 0; i < timeList.size(); i++) {
