@@ -16,16 +16,10 @@ int safeStringToInt(const std::string &str) {
 
 int main() {
     std::ifstream file("Input.txt");
-
-    if (!file.is_open()) {
-        std::cerr << "Unable to open file" << std::endl;
-        return 1;
-    }
+    std::string line;
 
     std::vector<int> timeList;
     std::vector<int> distanceList;
-
-    std::string line;
 
     while (std::getline(file, line)) {
         std::istringstream iss(line.substr(line.find(':') + 1));

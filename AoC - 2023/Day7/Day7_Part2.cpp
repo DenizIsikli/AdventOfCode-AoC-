@@ -59,14 +59,8 @@ int compare(const std::pair<std::string, int> &a, const std::pair<std::string, i
 
 int main() {
     std::ifstream file("Input.txt");
-
-    if (!file.is_open()) {
-        std::cerr << "Unable to open file" << std::endl;
-        return 1;
-    }
-
-    std::vector<std::pair<std::string, int>> hands;
     std::string line;
+    std::vector<std::pair<std::string, int>> hands;
 
     while (std::getline(file, line)) {
         std::istringstream iss(line);

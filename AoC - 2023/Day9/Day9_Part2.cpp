@@ -40,6 +40,8 @@ int main() {
         totalSum += std::accumulate(differences.begin(), differences.end(), 0);              
     }  
 
+    file.close();
+
     std::cout << totalSum << std::endl;
 
     return 0;

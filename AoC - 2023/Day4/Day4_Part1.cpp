@@ -6,14 +6,8 @@
 
 int main () {
     std::ifstream file("Input.txt");
-    int total_sum = 0;    
-
-    if (!file.is_open()) {
-        std::cerr << "Unable to open file" << std::endl;
-        return 1;
-    }
-
     std::string line;
+    int total_sum = 0;    
 
     while (std::getline(file, line)) {
         std::istringstream iss(line.substr(line.find(':') + 2));

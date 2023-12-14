@@ -16,14 +16,9 @@ struct PairHash {
 
 int main() {
     std::ifstream file("Input.txt");
-    
-    if (!file.is_open()) {
-        std::cerr << "Unable to open file" << std::endl;
-        return 1;
-    }
-
-    std::vector<std::string> lines;
     std::string line;
+    std::vector<std::string> lines;
+    
     while (std::getline(file, line)) {
         lines.push_back(line);
     }

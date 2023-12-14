@@ -5,11 +5,11 @@
 #include <algorithm>
 
 int main() {
-    std::ifstream inputFile("Input.txt");
+    std::ifstream file("Input.txt");
     std::string line;
     int total_sum = 0;
 
-    while (std::getline(inputFile, line)) {
+    while (std::getline(file, line)) {
         std::string _line = line.substr(line.find(':') + 2);
         std::replace(_line.begin(), _line.end(), ';', ',');
         
@@ -36,6 +36,8 @@ int main() {
 
         total_sum += max_red * max_green * max_blue;   
     }
+
+    file.close();
 
     std::cout << "Total: " << total_sum << std::endl;
 

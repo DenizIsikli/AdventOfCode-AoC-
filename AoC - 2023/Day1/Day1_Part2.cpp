@@ -35,17 +35,12 @@ uint32_t getNumber(std::string &slice) {
 }
 
 int main() {
-    uint32_t sum = 0;
+    std::ifstream file("Input.txt");
     std::string line;
+    uint32_t sum = 0;
 
-    std::ifstream inputFile("Input.txt");
 
-    if (!inputFile.is_open()) {
-        printf("Could not open file!");
-        return 1;
-    }
-
-    while (getline(inputFile, line)) {
+    while (getline(file, line)) {
         uint32_t leftmost = -1;
         uint32_t rightmost = -1;
 
@@ -66,6 +61,8 @@ int main() {
         }
         sum += leftmost * 10 + rightmost;
     }
+
+    file.close();
         
     printf("Sum: %d\n", sum);
 }

@@ -7,12 +7,12 @@
 std::unordered_map<std::string, int> counts = { {"red", 12}, {"green", 13}, {"blue", 14} };
 
 int main() {
-    std::ifstream inputFile("Input.txt");
+    std::ifstream file("Input.txt");
     std::string line;
     int game_id = 1;
     int total = 0;
 
-    while (std::getline(inputFile, line)) {
+    while (std::getline(file, line)) {
         std::string _line = line.substr(line.find(':') + 2);
         std::replace(_line.begin(), _line.end(), ';', ',');
         
@@ -39,6 +39,8 @@ int main() {
 
         game_id++;
     }
+
+    file.close();
 
     printf("Total: %d\n", total);
 
