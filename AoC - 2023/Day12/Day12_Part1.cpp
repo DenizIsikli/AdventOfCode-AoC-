@@ -5,7 +5,7 @@
 #include <sstream>
 #include <algorithm>
 
-int count(const std::string& cfg, std::vector<int>& nums, size_t pos = 0, size_t num_index = 0) {
+int count(const std::string &cfg, std::vector<int> &nums, size_t pos = 0, size_t num_index = 0) {
     if (pos == cfg.size()) {
         return num_index == nums.size() ? 1 : 0;
     }
@@ -28,8 +28,7 @@ int count(const std::string& cfg, std::vector<int>& nums, size_t pos = 0, size_t
                     std::vector<int> next_nums(nums.begin() + 1, nums.end());
                     result += count(cfg, next_nums, pos + nums[num_index] + 1, 0);
                 } else if (pos + nums[num_index] == cfg.size()) {
-                    std::vector<int> next_nums(nums.begin() + 1, nums.end());
-                    result += count(cfg, next_nums, pos + nums[num_index], 0);
+                    result += count(cfg, nums, pos + nums[num_index], num_index + 1);
                 }
             }
         }
