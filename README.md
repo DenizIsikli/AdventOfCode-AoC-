@@ -1,7 +1,13 @@
-# Advent of Code (AoC)
+# Advent of Code (AoC) Solutions
 
-### Language Used For 2023
-<img src="https://img.shields.io/badge/-C++-00599C?style=flat-square&logo=c%2B%2B&logoColor=white">
+This repository contains my solutions and attempts to the [Advent of Code](https://adventofcode.com/) challenges.
 
-```bash
-git clone https://github.com/yourusername/advent-of-code.git
+## Languages and Tools
+
+Below are the programming languages that I've used to solve the AoC challenges.
+
+| Year | Language |
+|------|----------|
+| 2023 | ![C++](https://img.shields.io/badge/-C++-00599C?style=flat-square&logo=c%2B%2B&logoColor=white) |
+| 2022 | ![C++](https://img.shields.io/badge/-C++-00599C?style=flat-square&logo=c%2B%2B&logoColor=white) |
+
