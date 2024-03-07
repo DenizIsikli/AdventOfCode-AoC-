@@ -11,3 +11,7 @@ Below are the programming languages that I've used to solve the AoC challenges.
 | 2023 | ![C++](https://img.shields.io/badge/-C++-00599C?style=flat-square&logo=c%2B%2B&logoColor=white) |
 | 2022 | ![C++](https://img.shields.io/badge/-C++-00599C?style=flat-square&logo=c%2B%2B&logoColor=white) |
 
+#### C++ Execution
+```bash
+!g++ % -o %:r.exe
+
