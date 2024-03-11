@@ -4,7 +4,6 @@
 
 int main() {
     std::ifstream file("Input4.txt");
-
     std::string line;
     
     int total_overlaps = 0;
