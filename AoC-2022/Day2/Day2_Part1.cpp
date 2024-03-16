@@ -34,6 +34,5 @@ int main() {
 	}
 
 	std::cout << total_score << std::endl;
-	return 0;
 }
 

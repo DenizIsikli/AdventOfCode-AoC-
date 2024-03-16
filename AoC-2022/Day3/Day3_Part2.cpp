@@ -33,6 +33,5 @@ int main() {
 	}
 
 	std::cout << priority_sum << std::endl;
-	return 0;
 }
 

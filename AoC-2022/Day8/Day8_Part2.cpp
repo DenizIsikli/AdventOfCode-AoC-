@@ -49,6 +49,7 @@ int main() {
            highestScore = std::max(highestScore, ele);
        }
    }
+
    std::cout << highestScore << std::endl;
 }
 
