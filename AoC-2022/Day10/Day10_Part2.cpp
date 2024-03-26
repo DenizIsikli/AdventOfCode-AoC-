@@ -3,7 +3,6 @@
 #include <vector>
 #include <string>
 #include <sstream>
-#include <numeric>
 #include <array>
 
 int main() {
@@ -13,54 +12,46 @@ int main() {
     std::vector<std::string> input;
     std::vector<int> cycles;
     int X = 1;
-    int cycle = 0;
+    int pos = 0;
 
     const int crtWidth = 40;
-    std::vector<std::string> crtScreen(6, std::string(crtWidth, '.'));
+    const int crtHeight = 6;
+    std::array<char, crtWidth * crtHeight> crtScreen;
+    std::fill_n(crtScreen.begin(), crtWidth * crtHeight, '.');
 
     while (std::getline(file, line)) {
         input.push_back(line);
     }
 
-    for (const auto& commandLine : input) {
-        std::istringstream iss(commandLine);
-        std::string command;
-        int value = 0;
-
-        // Check if the line is a 'noop' or an 'addx' command
-        if (commandLine == "noop") {
-            // If 'noop', increase cycle by 1
-            cycle++;
-        } else {
-            iss >> command >> value;
-            if (command == "addx") {
-                // Before changing X, check if the current cycle draws the sprite
-                if (X >= 0 && X < crtWidth) {
-                    crtScreen[cycle / crtWidth][X] = '#';
-                }
-                // Change X according to the value
-                X += value;
-                // Wrap X around if it goes beyond the screen width
-                X = (X + crtWidth) % crtWidth;
-                // After changing X, increase cycle by 1
-                cycle++;
-                // Check if the new value of X results in drawing the sprite
-                if (X >= 0 && X < crtWidth) {
-                    crtScreen[cycle / crtWidth][X] = '#';
-                }
-            }
+    auto tick = [&crtScreen, &pos, &X, crtWidth] {
+        if (X - 1 <= (pos % crtWidth) && (pos % crtWidth) <= X + 1) {
+            crtScreen[pos] = '#';
         }
+        pos++;
+    };
 
-        // Wrap the cycle if it exceeds the screen height
-        if (cycle / crtWidth >= crtScreen.size()) {
-            std::cerr << "CRT screen overflow. Increase the number of rows in crtScreen." << std::endl;
-            break;
+    for (const auto &line : input) {
+        std::istringstream iss(line);
+        std::string command;
+        int value;
+
+        if (line == "noop") {
+            tick();
+            continue;
+        }
+        iss >> command >> value;
+        if (command == "addx") {
+            tick();
+            tick();
+            X += value;
         }
     }
 
-    // Output the CRT screen
-    for (const auto& row : crtScreen) {
-        std::cout << row << std::endl;
+    for (size_t i = 0; i < crtHeight; ++i) {
+        for (size_t j = 0; j < crtWidth; ++j) {
+            std::cout << crtScreen[i * crtWidth + j];
+        }
+        std::cout << std::endl;
     }
 }
 
