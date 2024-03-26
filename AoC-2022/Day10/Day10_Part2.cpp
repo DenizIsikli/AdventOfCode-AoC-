@@ -11,6 +11,7 @@ int main() {
 
     std::vector<std::string> input;
     std::vector<int> cycles;
+
     int X = 1;
     int pos = 0;
 
